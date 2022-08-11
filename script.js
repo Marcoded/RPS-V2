@@ -1,6 +1,149 @@
-// NEW ONE
-// my computer choice is defined before the first fonction, so the result is always the same
-// To Fix this, i added the I assigned the
+
+let machineChoice
+let heroChoice
+let textResult
+let divResultPosition = document.getElementById("round-result-text")
+let HeroScore = 0
+let MachineScore = 0
+let scorePosition = document.getElementById("score-counter")
+let buttons = document.querySelectorAll("button")
+let finalResultPosition = document.getElementById("final-result")
+
+
+
+function getMachineChoice () {
+  let randomNumber 
+  randomNumber = Math.floor(Math.random() * 3);
+
+    switch(randomNumber) {
+      case 0:
+        return machineChoice= "rock";
+        break;
+      case 1:
+        return machineChoice= "paper";
+        break;
+      case 2:
+        return machineChoice = "scissors";
+        break;
+      default:
+    }
+}
+
+
+
+function playRound(heroChoice, machineChoice){
+  //console.log("fonction playround starting")
+  // this call the getComputerChoice every time, to get a different value
+  machineChoice = getMachineChoice()
+  //console.log(`the machine choose ${machineChoice}`)
+  
+  
+  // Draw
+      if (heroChoice === machineChoice) {
+      textResult = "it's a draw"
+      roundNumber++
+      roundCounter()
+      return divResultPosition.innerHTML=textResult
+
+      // player win  
+      } else if (machineChoice === "rock" && heroChoice === "paper"){
+      textResult = "Paper beats rock, you won";
+      HeroScore++
+      roundNumber++
+      roundCounter()
+      scorePosition.innerText = `you : ${HeroScore} machine ${MachineScore}`
+      return divResultPosition.innerHTML=textResult
+
+    } else if (machineChoice === "scissors" && heroChoice === "rock"){
+      textResult = "Rock beats paper, you won";
+      HeroScore++
+      roundNumber++
+      roundCounter()
+      scorePosition.innerText = `you : ${HeroScore} machine ${MachineScore}`
+      return divResultPosition.innerHTML=textResult
+
+    } else if (machineChoice === "paper" && heroChoice === "scissors"){
+      textResult =  "scissors beats paper, you won";
+      HeroScore++
+      roundNumber++
+      roundCounter()
+      scorePosition.innerText = `you : ${HeroScore} machine ${MachineScore}`
+      return divResultPosition.innerHTML=textResult
+
+  // player lose (3 cases)
+    } else if (machineChoice === "paper" && heroChoice === "rock"){
+      textResult =  "Your rock was wrapped by the machine paper, you lose";
+      MachineScore++
+      roundNumber++
+      roundCounter()
+      scorePosition.innerText = `you : ${HeroScore} machine ${MachineScore}`
+      return divResultPosition.innerHTML=textResult
+    } else if (machineChoice === "scissors" && heroChoice === "paper"){
+      textResult =  "your paper was cutted by the machine scissors, you lose";
+      MachineScore++
+      roundNumber++
+      roundCounter()
+      scorePosition.innerText = `you : ${HeroScore} machine ${MachineScore}`
+      divResultPosition.innerHTML=textResult
+
+    } else if (machineChoice === "rock" && heroChoice === "scissors"){
+      textResult =  "your scissors were broken by the machine rock, you lose ";
+      MachineScore++
+      roundNumber++
+      roundCounter()
+      scorePosition.innerText = `you : ${HeroScore} machine ${MachineScore}`
+      divResultPosition.innerHTML=textResult
+
+    } else {
+      return textResult =   "Could not make a choice of who win and lose in the if statement";
+    } {
+      
+  }
+}
+
+
+
+
+// Ici, on trigger le round au click d'un bouton
+// on créé une fonction for each, pour tous nous element button element
+
+let roundNumber = 0
+
+
+buttons.forEach((buttonElement) => {
+
+  // and for each one we add a 'click' listener
+  buttonElement.addEventListener('click', () => {
+    heroChoice=buttonElement.id;
+    //console.log(`the hero chose ${heroChoice}`)
+    playRound(heroChoice,machineChoice)
+    //console.log(textResult)
+    
+    
+  });
+});
+
+const roundCounter = () => { 
+  console.log(`the machine score is${MachineScore}`)
+  console.log(`the here score is${HeroScore}`)
+if (HeroScore===5) {
+  finalResultPosition.innerText = `You won!`
+} else if (MachineScore===5) {
+  finalResultPosition.innerText = `You lose :(`
+}
+}
+
+
+
+
+
+
+
+
+
+
+/*
+
 let computerChoice
 let textResult
 let userScore = 0
@@ -23,7 +166,7 @@ function getComputerChoice () {
        return text = "wrong choice";
   }
 }
-//computerChoice = getComputerChoice(computerChoice)
+
 console.log("the computer choice is "+ computerChoice + " Round havent started yet");
 
 function playRound(playerSelection, computerSelection){
@@ -106,3 +249,4 @@ playGame()
 
 // the score are not working correctly, investigate
 
+*/

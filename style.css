@@ -1,0 +1,28 @@
+* {
+    border: 1px solid green;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.button {
+    height: 100px;
+    width: 100px;
+    border: 2px solid black;
+}
+
+body {
+    
+    justify-items: center;
+    justify-content: center;
+    background-color: aqua;
+}
+
+.button-wrap {
+    display: flex;
+    
+    justify-content: center;
+}
+
+.body {
+    display: flex;
+    justify-content: center;
+}
