@@ -43,6 +43,7 @@ function playRound(heroChoice, machineChoice){
       textResult = "it's a draw"
       roundNumber++
       roundCounter()
+      scorePosition.innerText = `you : ${HeroScore} machine ${MachineScore}`
       return divResultPosition.innerHTML=textResult
 
       // player win  

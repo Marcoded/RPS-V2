@@ -1,28 +1,40 @@
 * {
     border: 1px solid green;
-    font-family: 'Montserrat', sans-serif;
+    color: white;
+    font: 1rem Inconsolata, monospace;
 }
 
 .button {
-    height: 100px;
+    height: 50px;
     width: 100px;
     border: 2px solid black;
+    border-radius: 3px;
+    background-color: black;
 }
 
 body {
     
     justify-items: center;
     justify-content: center;
-    background-color: aqua;
+    background-color: black;
+  background-image: radial-gradient(
+    rgba(0, 150, 0, 0.75), black 120%
+  );
+  height: 100vh;
 }
 
 .button-wrap {
     display: flex;
     
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .body {
     display: flex;
+    justify-content: center;
+}
+
+header {
+    display:flex ;
     justify-content: center;
 }
